@@ -1,0 +1,75 @@
+
+CREATE TABLE gizmos (
+    id VARCHAR(255) PRIMARY KEY,
+    organization_id VARCHAR(255),
+    short_url TEXT,
+    workspace_id VARCHAR(255),
+    model TEXT,
+    instructions TEXT,
+    settings JSONB,
+    share_recipient TEXT,
+    updated_at TIMESTAMP,
+    last_interacted_at TIMESTAMP,
+    version TEXT,
+    live_version TEXT,
+    training_disabled BOOLEAN,
+    allowed_sharing_recipients JSONB,
+    review_info JSONB,
+    appeal_info JSONB,
+    vanity_metrics JSONB
+);
+
+
+
+CREATE TABLE authors (
+    id bigserial primary key,
+    user_id VARCHAR(255),
+    display_name TEXT,
+    link_to TEXT,
+    selected_display TEXT,
+    is_verified BOOLEAN,
+    gizmo_id VARCHAR(255) REFERENCES gizmos(id)
+);
+
+CREATE TABLE voices (
+    id bigserial primary key,
+    voice_id VARCHAR(255),
+    gizmo_id VARCHAR(255) REFERENCES gizmos(id)
+);
+
+CREATE TABLE displays (
+    id SERIAL PRIMARY KEY,
+    name TEXT,
+    description TEXT,
+    welcome_message TEXT,
+    profile_picture_url TEXT,
+    categories TEXT,
+    gizmo_id VARCHAR(255) REFERENCES gizmos(id)
+);
+
+
+
+CREATE TABLE tags (
+    id SERIAL PRIMARY KEY,
+    tag TEXT,
+    gizmo_id VARCHAR(255) REFERENCES gizmos(id)
+);
+
+
+CREATE TABLE tools (
+    id SERIAL PRIMARY KEY,
+    tool_id VARCHAR(255) ,
+    type TEXT,
+    settings JSONB,
+    metadata JSONB,
+    gizmo_id VARCHAR(255) REFERENCES gizmos(id)
+);
+
+
+
+CREATE TABLE product_features (
+    id SERIAL PRIMARY KEY,
+    attachments JSONB,
+    gizmo_id VARCHAR(255) REFERENCES gizmos(id)
+);
+
