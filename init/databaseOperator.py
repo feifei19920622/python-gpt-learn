@@ -6,7 +6,7 @@ import psycopg2
 from psycopg2 import pool
 from psycopg2.extras import execute_values
 
-database_url = os.getenv("DATABASE_URL")
+database_url="postgresql://postgres:9LsElemniZWAL8F4@db.fdqdfqnswqenfjcwlgnx.supabase.co:5432/postgres"
 url = urlparse(database_url)
 
 # 创建连接池
@@ -18,6 +18,27 @@ connection_pool = psycopg2.pool.SimpleConnectionPool(
     password=url.password,
     database=url.path[1:],
 )
+
+def getAllGptsIDs():
+    conn = connection_pool.getconn()
+    try:
+        # 使用连接...
+        cursor = conn.cursor()
+        # 执行数据库操作...
+        cursor.execute("SELECT uuid FROM gpts")
+        uuids = cursor.fetchall()
+
+        cursor.close()
+        conn.commit()
+
+        print(f"get {len(uuids)} rows")
+        return [uuid[0] for uuid in uuids]
+    except Exception as e:
+        print("An error occurred:", e)
+        conn.rollback()  # 回滚事务以撤销任何部分执行的操作
+    finally:
+        # 将连接返回到连接池
+        connection_pool.putconn(conn)
 
 
 def executeBatch(tuples_to_insert):
@@ -106,6 +127,7 @@ def initDataBaseForNormalDataV2(data):
                 print("finish batch one")
             except psycopg2.Error as e:
                 print(f"Database error during batch insert: {e}")
+                print(str(batch))
                 conn.rollback()
 
     # 插入数据

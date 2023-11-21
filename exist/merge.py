@@ -1,70 +1,68 @@
 import json
-import os
 
-import json
 import requests
-import base64
-
-# 指定包含JSON文件的目录路径
-directory_path = './'  # 替换为实际的目录路径
-
-# 初始化一个空的JSON数组，用于存储所有JSON数据
-all_json_data = []
-exists = []
-# 遍历目录中的所有文件
-for filename in os.listdir(directory_path):
-    if filename.endswith('.json'):
-        file_path = os.path.join(directory_path, filename)
-        try:
-            # 读取JSON文件并解析数据
-            with open(file_path, 'r', encoding='utf-8') as json_file:
-                json_data = json.load(json_file)
-                exists.extend(json_data)
-                print(f"已初始化文件：{file_path}")
-        except Exception as e:
-            print(f"初始化文件时出错：{file_path}", str(e))
-
-# 将合并后的数据写入输出文件（覆盖已存在的文件内容）
-with open("aTotal.json", 'w') as output_json:
-    json.dump(exists, output_json, indent=4)
 
 
-# GitHub设置
-# token = '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'
-token = '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'
-repo = 'feifei19920622/thegpts'
-branch = 'main'
-path = 'public/jsons/aTotal.json'  # GitHub中的路径
-url = f'https://api.github.com/repos/{repo}/contents/{path}'
+def getDataJsonFromGit():
+    token1 = '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'
+    repo1 = 'airyland/gpts-data'
+    path1 = 'data.json'  # GitHub中的路径
+    url1 = f'https://api.github.com/repos/{repo1}/contents/{path1}'
+    print(url1)
+    headers1 = {'Authorization': f'token {token1}'}
+    response1 = requests.get(url1, headers=headers1)
 
-# 获取文件的当前SHA
-headers = {
-    'Authorization': f'token {token}',
-    'Content-Type': 'application/json',
-}
-response = requests.get(url, headers=headers)
+    if response1.status_code == 200:
+        download_url = response1.json()['download_url']
+    else:
+        print("Error fetching file: ", response1.status_code)
 
-if response.status_code == 200:
-    sha = json.loads(response.content)['sha']
-else:
-    print('Error getting file SHA:', response.content)
-    exit()
+    response1 = requests.get(download_url)
 
-# 要上传的文件
-file_content = open('aTotal.json', 'rb').read()
-b64_content = base64.b64encode(file_content)
+    if response1.status_code == 200:
+        # 将文件内容写入本地文件
+        with open("D:\code\python-gpt-learn\exist\gpthunter.json", "wb") as file:
+            file.write(response1.content)
+        print("File downloaded successfully.")
+    else:
+        print(f"Failed to download file: {response1.status_code}")
 
-# API请求（更新文件）
-data = {
-    'message': 'commit message',
-    'branch': branch,
-    'content': b64_content.decode('utf-8'),
-    'sha': sha  # 添加sha值
-}
+    # 从文件中读取 JSON 数据
+    with open('D:\code\python-gpt-learn\exist\gpthunter.json', 'r', encoding='utf-8') as input_file:
+        datas1 = json.load(input_file)
 
-response = requests.put(url, headers=headers, json=data)
+    # 修改 json_data 中的数据，或者进行其他操作
+    new_element = []
 
-if response.status_code in [200, 201]:
-    print('File uploaded/updated successfully')
-else:
-    print('Error:', response.content)
+    # 使用集合来存储已经添加过的id
+    existing_ids = set()
+
+    # 遍历 datas 列表中的每个元素
+    for value in datas1:
+        title = value["data"]["gizmo"]["display"]["name"]
+        description = value["data"]["gizmo"]["display"]["description"]
+        author = value["data"]["gizmo"]["author"]["display_name"]
+        imagePath = value["data"]["gizmo"]["display"]["profile_picture_url"]
+        gptLink = "https://chat.openai.com/g/" + value["data"]["gizmo"]["short_url"]
+        id = value["data"]["gizmo"]["id"]
+
+        # 检查id是否已经存在，如果不存在则添加到集合和新元素列表中
+        if id not in existing_ids:
+            existing_ids.add(id)
+            new_item = {
+                "title": title,
+                "desp": description,
+                "id": id
+            }
+            new_element.append(new_item)
+
+    # 指定要写入的 JSON 文件的文件名
+    output_file_name = 'D:\code\python-gpt-learn\exist\output.json'
+
+    # 使用 'w' 模式打开文件以写入数据
+    with open(output_file_name, 'w') as output_file:
+        # 将修改后的数据写入 JSON 文件
+        json.dump(new_element, output_file, indent=4)  # 使用缩进美化输出
+
+    print(f"JSON 文件 '{output_file_name}' 初始化完成！")
+getDataJsonFromGit()

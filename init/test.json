@@ -1,0 +1,216 @@
+[
+  {
+    "created_at": "2023-11-07T20:22:06.665Z",
+    "data": {
+      "gizmo": {
+        "id": "g-0g6ZdEtv6",
+        "organization_id": "org-qhHAkJFTfdedukTgB6yaP1gg",
+        "short_url": "g-0g6ZdEtv6-language-coach",
+        "author": {
+          "user_id": "user-DdFKG8a6i5zXNU7PNphf3J9X",
+          "display_name": "Watchovr LLC",
+          "link_to": null,
+          "selected_display": "name",
+          "is_verified": true
+        },
+        "voice": {
+          "id": "ember"
+        },
+        "workspace_id": null,
+        "model": null,
+        "instructions": null,
+        "settings": null,
+        "display": {
+          "name": "Language Coach",
+          "description": "Practice speaking another language like a local without being a local",
+          "welcome_message": "Hello! What language would you like to practice today?",
+          "prompt_starters": [
+            "How do you say 'library' in Spanish?",
+            "Explain 'ser' vs 'estar' in English.",
+            "Can we talk about weather in French?",
+            "Discuss Mexican Spanish slang terms."
+          ],
+          "profile_picture_url": "https://files.oaiusercontent.com/file-j83YhNh0Ta4ijMEz5ku5AWCf?se=2123-10-14T19%3A00%3A01Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D48c563e5-4826-449c-a6b5-eaf82b67f8c9.png&sig=s2zZCOVshINOlByC8W2lwA16yyo76m95Ku24DvOVtOk%3D",
+          "categories": []
+        },
+        "share_recipient": "marketplace",
+        "updated_at": "2023-11-07T19:22:00.845125+00:00",
+        "last_interacted_at": null,
+        "tags": [
+          "public",
+          "reportable"
+        ],
+        "version": null,
+        "live_version": null,
+        "training_disabled": null,
+        "allowed_sharing_recipients": null,
+        "review_info": null,
+        "appeal_info": null,
+        "vanity_metrics": null
+      },
+      "tools": [
+        {
+          "id": "gzm_cnf_ADiai7iPmEG1tq7HMavNuyOw~gzm_tool_lRp2A6XkKTJyPzZpCFD0AjkS",
+          "type": "dalle",
+          "settings": null,
+          "metadata": null
+        },
+        {
+          "id": "gzm_cnf_ADiai7iPmEG1tq7HMavNuyOw~gzm_tool_ddwIYEcGbKGgVR98R9px2IgS",
+          "type": "python",
+          "settings": null,
+          "metadata": null
+        },
+        {
+          "id": "gzm_cnf_ADiai7iPmEG1tq7HMavNuyOw~gzm_tool_KPC3rooOuQF8hNw3PSMLnJSk",
+          "type": "browser",
+          "settings": null,
+          "metadata": null
+        }
+      ],
+      "files": [],
+      "product_features": {
+        "attachments": {
+          "type": "retrieval",
+          "accepted_mime_types": [
+            "application/pdf",
+            "text/x-c++",
+            "application/msword",
+            "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "application/x-latext",
+            "text/x-tex",
+            "text/markdown",
+            "text/x-sh",
+            "text/x-ruby",
+            "text/x-java",
+            "text/html",
+            "application/json",
+            "text/x-php",
+            "text/x-c",
+            "text/plain",
+            "text/javascript",
+            "text/x-csharp",
+            "text/x-script.python",
+            "text/x-typescript"
+          ],
+          "image_mime_types": [
+            "image/gif",
+            "image/png",
+            "image/jpeg",
+            "image/webp"
+          ],
+          "can_accept_all_mime_types": true
+        }
+      }
+    },
+    "updated_at": "2023-11-16T00:57:08.070Z"
+  },
+  {
+    "created_at": "2023-11-07T20:22:06.666Z",
+    "data": {
+      "gizmo": {
+        "id": "g-tcmMldCYy",
+        "organization_id": "org-y40ZtnxoHxv3NKvKq9azbpc7",
+        "short_url": "g-tcmMldCYy-simpsonize-me",
+        "author": {
+          "user_id": "user-NFJrfRN9JI74hMNbeNAaitRz",
+          "display_name": "octaneai.com",
+          "link_to": "https://octaneai.com",
+          "selected_display": "website",
+          "is_verified": true
+        },
+        "voice": {
+          "id": "ember"
+        },
+        "workspace_id": null,
+        "model": null,
+        "instructions": null,
+        "settings": null,
+        "display": {
+          "name": "Simpsonize Me",
+          "description": "I turn photos into Simpsons-style art.",
+          "welcome_message": "Hi! Send me your pic and I'll Simpsonize it!",
+          "prompt_starters": [
+            "Can you make me look like a Simpsons character?",
+            "I want a profile pic in Simpsons style.",
+            "How do I get a Simpsons cartoon of myself?",
+            "Simpsonize my photo please."
+          ],
+          "profile_picture_url": "https://files.oaiusercontent.com/file-17fHH5xrODVwm3MWDraASFA3?se=2123-10-14T18%3A36%3A02Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Da722ea47-dbe5-48e9-8edb-18b06967b0a3.png&sig=1B5F0S7gRjMV2HmqIaIqmiSwoiePyILURO7nm3KDTIs%3D",
+          "categories": []
+        },
+        "share_recipient": "marketplace",
+        "updated_at": "2023-11-14T07:56:32.695512+00:00",
+        "last_interacted_at": null,
+        "tags": [
+          "public",
+          "reportable"
+        ],
+        "version": null,
+        "live_version": null,
+        "training_disabled": null,
+        "allowed_sharing_recipients": null,
+        "review_info": null,
+        "appeal_info": null,
+        "vanity_metrics": null
+      },
+      "tools": [
+        {
+          "id": "gzm_cnf_gd6cw7yCDqKW283O3NtlRnhO~gzm_tool_kZHPxJ3AhXWp09HShUPlyGpP",
+          "type": "dalle",
+          "settings": null,
+          "metadata": null
+        },
+        {
+          "id": "gzm_cnf_gd6cw7yCDqKW283O3NtlRnhO~gzm_tool_S3eRnHL6sQ20EPQA2zd6xfdf",
+          "type": "browser",
+          "settings": null,
+          "metadata": null
+        },
+        {
+          "id": "gzm_cnf_gd6cw7yCDqKW283O3NtlRnhO~gzm_tool_mcZ5cxXKNFkX2x8IZvsNQJx9",
+          "type": "python",
+          "settings": null,
+          "metadata": null
+        }
+      ],
+      "files": [],
+      "product_features": {
+        "attachments": {
+          "type": "retrieval",
+          "accepted_mime_types": [
+            "text/markdown",
+            "application/pdf",
+            "text/x-sh",
+            "text/javascript",
+            "application/json",
+            "text/x-tex",
+            "text/x-c",
+            "text/x-ruby",
+            "text/html",
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "text/x-typescript",
+            "text/x-script.python",
+            "text/x-csharp",
+            "text/x-c++",
+            "text/x-php",
+            "text/plain",
+            "text/x-java",
+            "application/x-latext",
+            "application/msword",
+            "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+          ],
+          "image_mime_types": [
+            "image/jpeg",
+            "image/gif",
+            "image/png",
+            "image/webp"
+          ],
+          "can_accept_all_mime_types": true
+        }
+      }
+    },
+    "updated_at": "2023-11-16T00:57:29.690Z"
+  }
+]

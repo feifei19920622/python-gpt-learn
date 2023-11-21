@@ -52,7 +52,7 @@ def nuanced_categorization(description):
 
 
 def getDataJsonFromGit():
-    token1 = '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'
+    token1 = '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'
     repo1 = 'airyland/gpts-data'
     path1 = 'data.json'  # GitHub中的路径
     url1 = f'https://api.github.com/repos/{repo1}/contents/{path1}'
@@ -103,13 +103,13 @@ def getDataJsonFromGit():
                 "author": author,
                 "picture": imagePath,
                 "url": gptLink,
-                "category": nuanced_categorization(description),
+                # "category": nuanced_categorization(description),
                 "id": id
             }
             new_element.append(new_item)
 
     # 指定要写入的 JSON 文件的文件名
-    output_file_name = 'D:\code\python-gpt-learn\exist\output.json'
+    output_file_name = '/exist/output.txt'
 
     # 使用 'w' 模式打开文件以写入数据
     with open(output_file_name, 'w') as output_file:
@@ -134,7 +134,7 @@ for value in exists:
 
 # 从文件中读取 JSON 数据
 new_element =[]
-with open('D:\code\python-gpt-learn\exist\\output.json', 'r', encoding='utf-8') as input_file:
+with open('/exist/output.txt', 'r', encoding='utf-8') as input_file:
     new_element = json.load(input_file)
 
 # 遍历 datas 列表中的每个元素
@@ -153,7 +153,7 @@ with open("D:\code\python-gpt-learn\exist\\aTotal.json", 'w') as output_json:
 logging.info(len(exists))
 # GitHub设置
 # token = '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'
-token = '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'
+token = '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'
 repo = 'feifei19920622/thegpts'
 branch = 'main'
 path = 'public/jsons/aTotal.json'  # GitHub中的路径
